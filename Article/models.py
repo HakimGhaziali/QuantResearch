@@ -18,4 +18,20 @@ class Post(models.Model):
     
 
     def __str__(self):
+
         return self.title
+
+
+
+class Static(models.Model):
+
+    post= models.ForeignKey(Post , on_delete=models.CASCADE , related_name='posts')
+    total_trade = models.IntegerField()
+    average_loss = models.IntegerField()
+    net_profit = models.IntegerField()
+    win_rate= models.IntegerField()
+
+
+    def __int__(self):
+
+        return self.win_rate
