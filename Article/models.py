@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth import get_user_model
+from django.urls import reverse
 
 
 
@@ -20,6 +21,10 @@ class Post(models.Model):
     def __str__(self):
 
         return self.title
+    
+    def get_absolute_url(self):
+
+        return reverse('Ardetail', args=[self.pk])
 
 
 
@@ -30,8 +35,3 @@ class Static(models.Model):
     average_loss = models.IntegerField()
     net_profit = models.IntegerField()
     win_rate= models.IntegerField()
-
-
-    def __int__(self):
-
-        return self.win_rate
